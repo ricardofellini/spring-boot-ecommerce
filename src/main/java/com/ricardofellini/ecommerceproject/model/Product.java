@@ -1,12 +1,12 @@
 package com.ricardofellini.ecommerceproject.model;
 
+
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.util.Objects;
 
 @Entity
-@Table(name = "TB_ITEMS")
-public class Item {
+@Table(name = "TB_PRODUCT")
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,7 +16,17 @@ public class Item {
 
     private String barCode;
 
-    private BigDecimal price;
+    private Double price;
+
+    private String pictureUrl;
+
+    public String getPictureUrl() {
+        return pictureUrl;
+    }
+
+    public void setPictureUrl(String pictureUrl) {
+        this.pictureUrl = pictureUrl;
+    }
 
     public Long getId() {
         return id;
@@ -42,11 +52,11 @@ public class Item {
         this.barCode = barCode;
     }
 
-    public BigDecimal getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
@@ -54,8 +64,8 @@ public class Item {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Item item = (Item) o;
-        return Objects.equals(id, item.id) && Objects.equals(description, item.description) && Objects.equals(barCode, item.barCode) && Objects.equals(price, item.price);
+        Product product = (Product) o;
+        return Objects.equals(id, product.id) && Objects.equals(description, product.description) && Objects.equals(barCode, product.barCode) && Objects.equals(price, product.price);
     }
 
     @Override

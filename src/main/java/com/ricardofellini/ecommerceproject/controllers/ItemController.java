@@ -1,6 +1,6 @@
 package com.ricardofellini.ecommerceproject.controllers;
 
-import com.ricardofellini.ecommerceproject.model.Item;
+import com.ricardofellini.ecommerceproject.model.Product;
 import com.ricardofellini.ecommerceproject.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,13 +18,13 @@ public class ItemController {
     private ItemRepository itemRepository;
 
     @GetMapping("/items")
-    public List<Item> getAllItems(){
+    public List<Product> getAllItems(){
         return itemRepository.findAll();
     }
 
     @PostMapping("/items")
-    public Item addItem(@RequestBody Item item){
-        return itemRepository.save(item);
+    public Product addItem(@RequestBody Product product){
+        return itemRepository.save(product);
     }
 
 }
